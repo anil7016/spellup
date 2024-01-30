@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file original="file.ext" xml:space="preserve" source-language="en" target-language="fr">
+    <header>
+      <tool tool-id="poeditor.com" tool-name="POEditor"/>
+    </header>
+    <body>
+      <group id="login_page">
+        <trans-unit id="app" resname="app">
+          <source>TODO List</source>
+          <target>TODO List</target>
+          <note>Please don't change the name of the application</note>
+          <context-group purpose="location">
+            <context context-type="sourcefile">/app/modules/views/main</context>
+            <context context-type="linenumber">5</context>
+          </context-group>
+        </trans-unit>
+        <trans-unit id="form.text" resname="form.text">
+          <source>Enter your credentials below to login</source>
+          <target>Entrez vos identifiants ci-dessous pour vous connecter</target>
+          <context-group purpose="location">
+            <context context-type="sourcefile">/app/modules/views/main</context>
+            <context context-type="linenumber">67</context>
+          </context-group>
+        </trans-unit>
+        <trans-unit id="forgot.pass.label" resname="forgot.pass.label">
+          <source>I forgot my password</source>
+          <target>J'ai oublié mon mot de passe</target>
+          <context-group purpose="location">
+            <context context-type="sourcefile">/app/modules/views/main</context>
+            <context context-type="linenumber">68</context>
+          </context-group>
+        </trans-unit>
+        <trans-unit id="terms" resname="app">
+          <source>Terms and conditions</source>
+          <target>Termes et conditions</target>
+          <context-group purpose="location">
+            <context context-type="sourcefile">/app/modules/views/main</context>
+            <context context-type="linenumber">69</context>
+          </context-group>
+        </trans-unit>
+      </group>
+      <group id="alerts">
+        <trans-unit id="form.alert.success">
+          <source>Login successful !
+Welcome back %s !</source>
+          <target>Connexion réussie !
+Bon retour %s !</target>
+        </trans-unit>
+        <trans-unit id="form.alert.error">
+          <source>Make sure you've entered the correct username and password</source>
+          <target>Assurez-vous que vous avez entré le nom d'utilisateur correct et le mot de passe</target>
+        </trans-unit>
+        <trans-unit id="signup.alert.success">
+          <source>Thank you for signing up !
+Please check your email address to activate your account.</source>
+          <target>Je vous remercie pour vous inscrire !
+Veuillez vérifier votre adresse e-mail pour activer votre compte.</target>
+        </trans-unit>
+        <trans-unit id="signup.alert.error">
+          <source>We were unable to sign you up.
+Please correct the marked fields.</source>
+          <target>Nous n'avons pas pu vous inscrire.
+Veuillez corriger les champs marqués.</target>
+        </trans-unit>
+      </group>
+      <trans-unit id="form.recover.text">
+        <source>Enter your address in the field below. A new password will be sent to your inbox.</source>
+        <target>Entrez votre adresse dans le champ ci-dessous. Un nouveau mot de passe sera envoyé à votre boîte de réception.</target>
+      </trans-unit>
+      <trans-unit id="signup.text">
+        <source>Sign up for free! No credit card required!</source>
+        <target>Inscrivez-vous gratuitement ! Aucune carte de crédit !</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

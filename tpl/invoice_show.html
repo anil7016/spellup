@@ -1,0 +1,94 @@
+<style>
+    .line {
+        background: #f1ecec;
+        margin-bottom: 25px;
+    }
+
+    .imgcenter {
+        margin: 0 auto;
+        width: max-content;
+    }
+
+    .form-control[disabled],
+    .form-control[readonly],
+    fieldset[disabled] .form-control {
+        background-color: #f9f9f9;
+    }
+</style>
+<div ng-init="app.settings.container = false;" class="md-navbar navbar blue md-whiteframe-z1"
+    data-ng-include=" 'tpl/material.header.html' ">
+</div>
+<div layout="row">
+    <div flex class="bg-white md-whiteframe-z0 md-aside md-content hidden-xs"
+        data-ng-include=" 'tpl/material.aside.html' ">
+    </div>
+    <div flex layout="column">
+        <div ui-butterbar></div>
+        <a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".md-aside"></a>
+        <div class="md-content page_content_wrapper">
+            <div class="content_head bg-light lter b-b wrapper-md ng-scope">
+                <!-- <a id="editInvoiceSave" class="btn btn-info pull-right invcBtn btnSave" ng-hide="editDisabled"
+                    ng-click="editInvoiceLinguist(invoiceDetail.invoice_number)"><i class="fa fa-pencil"></i> Edit &
+                    Save </a> -->
+                <!-- <a href="" class="btn btn-sm btn-info btnSave pull-right" ng-show="reminderBtnHideShow"
+                    ng-click="sendRemiderinvoice(invoiceDetail.invoice_number)">Send Reminder</a> -->
+                <a href="" class="btn btn-sm btn-info btnSave pull-right" ng-show="reminderBtnHideShow"
+                    ng-click="sendInvoiceEmail('invoice_reminder',invoiceDetail.invoice_number)">Send Reminder</a>    
+                <a href="" class="btn btn-sm btn-info pull-right"
+                    ng-click="printIt(invoiceDetail.invoice_number)">Download</a>
+                <a ng-show="userRight==1" href="javascript:history.back()" class="btn btn-sm btn-info pull-right"
+                    style="margin-right: 10px;"><span class="fa fa-arrow-left"></span> Back</a>
+                <a ng-show="userRight==2" href="javascript:history.back()" class="btn btn-sm btn-info pull-right"
+                    style="margin-right: 10px;"><span class="fa fa-arrow-left"></span> Back</a>
+                <h1 class="m-n font-thin h3">Invoice</h1>
+            </div>
+            <div class="wrapper-md ng-scope">
+                <div class="panel panel-default invoiceInput">
+                    <div class="panel-body">
+
+                        <div class="col-sm-12" id="exportable">
+                            <!-- Invoice pdf Template -->
+                            <linguist-invoice-pdftemplate></linguist-invoice-pdftemplate>
+                        </div>
+                        <div class="col-sm-12">
+
+                            <div id="toAddEleAfterDwonload"></div>
+                            <div ng-show="viewBtn">
+                                <button id="btnPaid" ng-show="userRight==1" class="btn btn-info btnSave"
+                                    ng-click="invoicePaid('invoice-form');"> Paid</button>
+                                <button id="btnMarkAsCancel"
+                                    ng-show="userRight==1 && invoiceDetail.invoice_status=='Open'"
+                                    class="btn btn-info btnSave" ng-click="invoiceCancel('invoice-form');">Mark as
+                                    cancel</button>
+                                <!-- <button id="btnSave" ng-show="invoiceDetail.invoice_type!='save'"
+                                    class="btn btn-info btnSave" ng-click="save('invoice-form', 'save');"><i
+                                        class="fa fa-floppy-o" aria-hidden="true"></i> Save</button> -->
+                                <button id="btnDraft" ng-show="!invoiceDetail.invoice_type" class="btn btn-info"
+                                    ng-click="save('invoice-form', 'draft');"> Draft</button>
+                                <button id="btnCancel" ng-show="!invoiceDetail.invoice_type" class="btn btn-info"
+                                    ng-click="cancel();"> Cancel</button>
+                                <button id="btnApproved" class="btn btn-success btnSave t1"
+                                    ng-show="invoiceDetail.is_approved==1 && !isPdfdownload"
+                                    ng-click="invoiceApproved('0');" ng-disabled="isDisabledApprvd"> Approved</button>
+                                <button id="btnApproved" class="btn btn-warning btnSave t2"
+                                    ng-show="invoiceDetail.is_approved==0 && !isPdfdownload"
+                                    ng-click="invoiceApproved('1');" ng-disabled="isDisabledApprvd"
+                                    style="color: #454f59 !important;"> UnApproved</button>
+                                <button id="editInvoiceSave2" class="btn btn-info btnSave" ng-hide="userRight==1 || editDisabled || invoiceDetail.invoice_status != 'Open' || (userRight==2 && invoiceDetail.is_invoice_sent == 1) "
+                                    ng-click="sendInvoiceEmail('invoice_to_be_sent',invoiceDetail.invoice_number)"><i
+                                        class="fa fa-envelope-o"></i> To Be Sent </button>
+                                <button id="editInvoiceSave2" class="btn btn-info btnSave" ng-hide="editDisabled || (userRight==2 && invoiceDetail.is_invoice_sent == 1) "
+                                    ng-click="editInvoiceLinguist(invoiceDetail.invoice_number)"><i
+                                        class="fa fa-pencil"></i> Edit & Save </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer copy right -->
+                <div data-ng-include="'tpl/copyRight.html'"></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

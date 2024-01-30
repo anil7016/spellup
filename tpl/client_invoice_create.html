@@ -1,0 +1,73 @@
+<style>
+  /* .invoice-header,.invoice-footer {
+    background-color: #6D85Ad;
+    padding: 25px;
+    padding-bottom: 25px;
+    color: #FFF;
+    margin-bottom: 15px;
+  } */
+  /* .invoice-content1{
+    padding: 25px;
+  }
+  .invoice-header h1 {
+    margin-top: 50px;
+  }
+  .invoice-footer p{
+    margin-top: 10px;
+  } */
+  .line{
+    background: #f1ecec;
+    margin-bottom: 25px;
+  }
+  /* .imgcenter{
+    margin: 0 auto;
+    width: max-content;
+  } */
+  
+</style>
+<div ng-init="app.settings.container = false;" class="md-navbar navbar blue md-whiteframe-z1"
+  data-ng-include=" 'tpl/material.header.html' ">
+</div>
+<div layout="row">
+  <div flex class="bg-white md-whiteframe-z0 md-aside md-content hidden-xs"
+    data-ng-include=" 'tpl/material.aside.html' ">
+  </div>
+  <div flex layout="column">
+    <div ui-butterbar></div>
+    <a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".md-aside"></a>
+    <div class="md-content page_content_wrapper">
+
+      <div class="content_head bg-light lter b-b wrapper-md ng-scope">
+        <a href="javascript:history.back()" class="btn btn-sm btn-info pull-right" style="margin-right: 10px;"><span
+            class="fa fa-arrow-left"></span> Back</a>
+        <h1 class="m-n font-thin h3">Invoice <span style="font-size:16px;font-weight:normal;">(Preview)</span></h1>
+      </div>
+      <div class="wrapper-md ng-scope">
+        <div class="panel panel-default invoiceInput">
+          <form id="invoice-form">
+            <div class="panel-body" style="padding-top:0;padding-left:0;">
+              <!-- <div class="col-sm-12">
+                    <a href="" class="btn btn-sm btn-info pull-right" onclick="window.print();">Print</a>
+                </div> -->
+              
+              <div class="col-sm-12 pl-0">
+                <!-- invoice include by dynamic name -->
+                <div data-ng-include="invoiceTemplateName"></div>
+              </div>
+
+              <button class="btn btn-info btnSave" ng-click="save('invoice-form', 'save');"><i class="fa fa-floppy-o"
+                  aria-hidden="true"></i> Save</button>
+              <button class="btn btn-info" ng-click="save('invoice-form', 'draft');"> Draft</button>
+              <button class="btn btn-info" ng-click="cancel();"> Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- footer copy right -->
+        <div data-ng-include="'tpl/copyRight.html'"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

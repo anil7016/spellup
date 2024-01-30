@@ -1,0 +1,46 @@
+<style>
+  .line {
+    background: #f1ecec;
+    margin-bottom: 25px;
+  }
+  .imgcenter {
+    margin: 0 auto;
+    width: max-content;
+  }
+  .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control { 
+    background-color: #f9f9f9; 
+  }
+
+  .modal-dialog {
+    width: 80%;
+  }
+  .modal-content{
+    opacity: 0;
+  }
+  .pdfnospace{
+    padding-top: 0px; 
+    padding-bottom: 0px; 
+  }
+</style>
+<div class="modal-header" >
+  <div class="modal-title">
+    <h4>Invoice Pdf</h4>
+    <a href="javascript:void(0);" ng-click="printIt(invoiceDetail.invoice_number)" class="btn btn-info btn-sm btn-rounded ng-scope"><i
+        class="fa fa-download"></i>&nbsp; Pdf </a>
+  </div>
+</div>
+<div class="modal-body ng-scope">
+  <div class="row">
+    <div class="md-content">
+      <div class="wrapper-md ng-scope">
+        <!-- Directive linguist pdf html-->
+        <linguist-invoice-pdftemplate></linguist-invoice-pdftemplate>
+        <!-- Invoice PDF content include -->
+        <!-- <div data-ng-include="'tpl/linguist-invoice-pdf-content.html'"></div> -->
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-info" ng-click="cancel()">Cancel</button>
+  </div>
+</div>  
